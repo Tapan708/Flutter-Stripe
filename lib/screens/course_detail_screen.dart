@@ -81,7 +81,6 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
 
       await Stripe.instance.presentPaymentSheet();
 
-      // mark course as purchased so lock icons are removed
       setState(() => _isPurchased = true);
 
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Payment successful ✅')));

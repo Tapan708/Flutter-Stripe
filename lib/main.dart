@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'models/course.dart';
 import 'screens/course_detail_screen.dart';
 import 'config/stripe_config.dart';
@@ -8,7 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = StripeConfig.publishableKey;
   await Stripe.instance.applySettings();
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
